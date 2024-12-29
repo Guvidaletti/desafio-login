@@ -1,0 +1,16 @@
+services:
+  keycloak:
+    environment:
+      KEYCLOAK_ADMIN: admin
+      KEYCLOAK_ADMIN_PASSWORD: admin
+    command: start-dev --import-realm
+
+  dl-front:
+    container_name: dl-front
+    build:
+      context: ./dl-front
+      dockerfile: Dockerfile
+      args:
+        ENV_NAME: dev
+    ports:
+      - "3000:3000"

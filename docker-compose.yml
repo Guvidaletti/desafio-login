@@ -1,0 +1,12 @@
+services:
+  keycloak:
+    container_name: keycloak
+    image: keycloak/keycloak:23.0
+    ports:
+      - "8080:8080"
+      - "8443:8443"
+    volumes:
+      - ./keycloak:/opt/keycloak/data/import
+      - ./keycloak/data:/opt/keycloak/data
+    environment:
+      KC_HTTP_RELATIVE_PATH: "/auth"
