@@ -13,4 +13,18 @@ services:
       args:
         ENV_NAME: dev
     ports:
-      - "3000:3000"
+      - "5173:5173"
+    networks:
+      - desafio-login
+
+  proxy:
+    container_name: proxy-dl
+    # image: proxy-dl:latest
+    build:
+      context: .
+      dockerfile: ./proxy/Dockerfile
+    ports:
+      - 80:80
+      - 443:443
+    networks:
+      - desafio-login

@@ -679,17 +679,19 @@
       "clientId": "desafio-login-app",
       "name": "Desafio Login App",
       "description": "",
-      "rootUrl": "http://localhost:5173",
-      "adminUrl": "http://localhost:5173",
-      "baseUrl": "http://localhost:5173",
+      "rootUrl": "",
+      "adminUrl": "",
+      "baseUrl": "",
       "surrogateAuthRequired": false,
       "enabled": true,
       "alwaysDisplayInConsole": false,
       "clientAuthenticatorType": "client-secret",
       "redirectUris": [
-        "/auth",
-        "http://localhost:5173/",
-        "http://localhost:5173/auth/"
+        "",
+        "http://localhost/login",
+        "http://localhost:5173/login",
+        "http://localhost",
+        "http://localhost:5173"
       ],
       "webOrigins": [
         "*"
@@ -707,7 +709,7 @@
       "attributes": {
         "oidc.ciba.grant.enabled": "false",
         "backchannel.logout.session.required": "true",
-        "post.logout.redirect.uris": "/",
+        "post.logout.redirect.uris": "*",
         "oauth2.device.authorization.grant.enabled": "false",
         "display.on.consent.screen": "false",
         "backchannel.logout.revoke.offline.tokens": "false"

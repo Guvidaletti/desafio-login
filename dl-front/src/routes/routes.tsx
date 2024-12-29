@@ -11,8 +11,8 @@ import HomePage from '../pages/homePage/homePage';
 
 const config: OidcConfiguration = {
   client_id: window.env.auth.id,
-  redirect_uri: window.location.origin + '/auth/',
-  silent_login_uri: window.location.origin + '/auth/silent_renew',
+  redirect_uri: window.location.origin + '/login',
+  silent_login_uri: window.location.origin + '/login/silent_renew',
   authority: window.env.auth.domain,
   scope: 'openid profile',
   storage: window.localStorage,
@@ -30,7 +30,7 @@ export default function Routes() {
         }
       >
         <Route path='/' Component={HomePage} />
-        <Route path='/auth' element={<></>} />
+        <Route path='/login' element={<></>} />
         <Route
           path='/'
           element={

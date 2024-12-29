@@ -11,7 +11,7 @@ Desenvolver uma aplicação Dockerizada que realize um login com autenticação 
 - Criar um Dockerfile para o Frontend com duas etapas:
   - Build do React
   - Servidor Nginx
-- Configurar o Dockerfile para renomear o arquivo `dev.js` ou `prod.js` para `env.js` na etapa de build
+- Configurar o Dockerfile para renomear o arquivo `dev.js` ou `prod.js` para `env.js` na etapa de build do frontend
 - Injetar o argumento de build `ENV_NAME` no Docker Compose.
 
 ### Keycloak
@@ -19,17 +19,15 @@ Desenvolver uma aplicação Dockerizada que realize um login com autenticação 
 - Se quiser, pode subir uma instancia de postgres para o Keycloak no docker-compose de PROD
 
 ### Aplicação
-- Criar um AuthContext
-  - Funções `login` e `logout`
-  - Usuário | undefined
+- Utilizar @axa-fr/react-oidc
 - Criar uma rota aberta e duas fechadas
 
 ## Entrega
-- [ ] Docker Compose BASE
-- [ ] Docker Compose DEV
-- [ ] Docker Compose PROD
+- [v] Docker Compose BASE
+- [v] Docker Compose DEV
+- [v] Docker Compose PROD
 - [v] Variáveis de ambiente
 - [v] Dockerfile com Build do React e Servidor Nginx
-- [ ] Utilização do react-oidc-ts ou @axa-fr/react-oidc
-- [ ] AuthContext
-- [ ] Rota aberta e duas fechadas
+- [v] Utilização do react-oidc-ts ou @axa-fr/react-oidc
+- [v] Rota aberta e duas fechadas
+- [v] Nginx com configuração de proxy reverso para as aplicações

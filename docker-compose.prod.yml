@@ -1,14 +1,4 @@
 services:
-  dl-front:
-    container_name: dl-front
-    build:
-      context: ./dl-front
-      dockerfile: Dockerfile
-      args:
-        ENV_NAME: prod
-    ports:
-      - "5173:5173"
-
   keycloak:
     environment:
       KEYCLOAK_ADMIN: admin
@@ -23,6 +13,18 @@ services:
     depends_on:
       - postgres
 
+  dl-front:
+    container_name: dl-front
+    build:
+      context: ./dl-front
+      dockerfile: Dockerfile
+      args:
+        ENV_NAME: prod
+    ports:
+      - "5173:5173"
+    networks:
+      - desafio-login
+
   postgres:
     image: postgres:15
     environment:
@@ -33,6 +35,20 @@ services:
       - postgres_data:/var/lib/postgresql/data
     ports:
       - "5432:5432"
+    networks:
+      - desafio-login
+
+  proxy:
+    container_name: proxy-dl
+    # image: proxy-dl:latest
+    build:
+      context: .
+      dockerfile: ./proxy/Dockerfile
+    ports:
+      - 80:80
+      - 443:443
+    networks:
+      - desafio-login
 
 volumes:
   postgres_data:
